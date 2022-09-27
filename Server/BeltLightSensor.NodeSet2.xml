@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<UANodeSet
-        xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
-        xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+<UANodeSet xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
+           xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
     <NamespaceUris>
         <Uri>https://big-map.eu/WP4/BeltLightSensor/</Uri>
     </NamespaceUris>
@@ -38,24 +37,29 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=5012</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=5009</Reference>
-        </References>
-    </UAObject>
-    <UAObject NodeId="ns=1;i=5012" BrowseName="1:Output">
-        <DisplayName>Output</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6004</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6003</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5009</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6008</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="Float" Historizing="true" ValueRank="0" NodeId="ns=1;i=6003" BrowseName="1:Data"
-                AccessLevel="15">
-        <DisplayName>Data</DisplayName>
+    <UAVariable DataType="Boolean" NodeId="ns=1;i=6004" BrowseName="1:IsStarted" AccessLevel="3">
+        <DisplayName>IsStarted</DisplayName>
+        <Description>Set it to true to start an experiment on LLE</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
+        </References>
+        <Value>
+            <uax:Boolean>false</uax:Boolean>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="Float" Historizing="true" ValueRank="0" NodeId="ns=1;i=6003" BrowseName="1:Results"
+                AccessLevel="15">
+        <DisplayName>Results</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAVariable>
     <UAObject NodeId="ns=1;i=5009" BrowseName="1:Settings">
@@ -99,6 +103,13 @@
         <Value>
             <uax:UInt16>169</uax:UInt16>
         </Value>
+    </UAVariable>
+    <UAVariable DataType="String" NodeId="ns=1;i=6008" BrowseName="1:Status" AccessLevel="3">
+        <DisplayName>Status</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
+        </References>
     </UAVariable>
     <UAObject SymbolicName="http___big_map_eu_WP4/BeltLightSensor" NodeId="ns=1;i=5013"
               BrowseName="1:https://big-map.eu/WP4/BeltLightSensor/">

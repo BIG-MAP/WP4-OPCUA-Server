@@ -13,7 +13,7 @@ public static class Configuration
         const string securityPolicyUri = "http://opcfoundation.org/UA/SecurityPolicy#None";
         const string nodeManagerFilePath = $"{appName}_.NodeSet.xml";
         const string traceConfigurationFilePath = $"{appName}.log";
-        var domainNames = new[] { "localhost" };
+        var domainNames = new[] { "localhost", "host.docker.internal" };
         var baseAddresses = new[]
         {
             $"opc.tcp://localhost:62540/UA/{appName}",
