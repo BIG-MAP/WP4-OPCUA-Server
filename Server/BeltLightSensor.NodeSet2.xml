@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet
+        xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
+        xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+    <NamespaceUris>
+        <Uri>https://big-map.eu/WP4/BeltLightSensor/</Uri>
+    </NamespaceUris>
+    <Models>
+        <Model ModelUri="https://big-map.eu/WP4/BeltLightSensor/" PublicationDate="2022-09-19T15:42:29Z"
+               Version="1.0.0">
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/" PublicationDate="2022-01-24T00:00:00Z"
+                           Version="1.05.01"/>
+        </Model>
+    </Models>
+    <Aliases>
+        <Alias Alias="Boolean">i=1</Alias>
+        <Alias Alias="UInt16">i=5</Alias>
+        <Alias Alias="Float">i=10</Alias>
+        <Alias Alias="String">i=12</Alias>
+        <Alias Alias="DateTime">i=13</Alias>
+        <Alias Alias="Organizes">i=35</Alias>
+        <Alias Alias="HasTypeDefinition">i=40</Alias>
+        <Alias Alias="HasProperty">i=46</Alias>
+        <Alias Alias="HasComponent">i=47</Alias>
+        <Alias Alias="IdType">i=256</Alias>
+        <Alias Alias="NumericRange">i=291</Alias>
+    </Aliases>
+    <UAObject NodeId="ns=1;i=5003" BrowseName="1:LLE">
+        <DisplayName>LLE</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5006</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;i=5006" BrowseName="1:BeltLightSensor">
+        <DisplayName>BeltLightSensor</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5003</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5012</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5009</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;i=5012" BrowseName="1:Output">
+        <DisplayName>Output</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6003</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="Float" Historizing="true" ValueRank="0" NodeId="ns=1;i=6003" BrowseName="1:Data"
+                AccessLevel="15">
+        <DisplayName>Data</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
+        </References>
+    </UAVariable>
+    <UAObject NodeId="ns=1;i=5009" BrowseName="1:Settings">
+        <DisplayName>Settings</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6009</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6006</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6012</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="UInt16" Historizing="true" NodeId="ns=1;i=6009" BrowseName="1:DeltaLEDs" AccessLevel="15">
+        <DisplayName>DeltaLEDs</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5009</Reference>
+        </References>
+        <Value>
+            <uax:UInt16>16</uax:UInt16>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="UInt16" Historizing="true" NodeId="ns=1;i=6006" BrowseName="1:NumOfLEDs" AccessLevel="15">
+        <DisplayName>NumOfLEDs</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5009</Reference>
+        </References>
+        <Value>
+            <uax:UInt16>4</uax:UInt16>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="UInt16" Historizing="true" NodeId="ns=1;i=6012" BrowseName="1:TravelDistance"
+                AccessLevel="15">
+        <DisplayName>TravelDistance</DisplayName>
+        <Description>The distance traveled in mm</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5009</Reference>
+        </References>
+        <Value>
+            <uax:UInt16>169</uax:UInt16>
+        </Value>
+    </UAVariable>
+    <UAObject SymbolicName="http___big_map_eu_WP4/BeltLightSensor" NodeId="ns=1;i=5013"
+              BrowseName="1:https://big-map.eu/WP4/BeltLightSensor/">
+        <DisplayName>https://big-map.eu/WP4/BeltLightSensor/</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=11616</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">i=11715</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6013</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6014</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6015</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6016</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6017</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6018</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6019</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="Boolean" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6013" BrowseName="IsNamespaceSubset">
+        <DisplayName>IsNamespaceSubset</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:Boolean>false</uax:Boolean>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="DateTime" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6014"
+                BrowseName="NamespacePublicationDate">
+        <DisplayName>NamespacePublicationDate</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:DateTime>2022-09-19T15:42:29Z</uax:DateTime>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6015" BrowseName="NamespaceUri">
+        <DisplayName>NamespaceUri</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:String>https://big-map.eu/WP4/BeltLightSensor/</uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6016" BrowseName="NamespaceVersion">
+        <DisplayName>NamespaceVersion</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+        <Value>
+            <uax:String>1.0.0</uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="IdType" ParentNodeId="ns=1;i=5013" ValueRank="1" NodeId="ns=1;i=6017" ArrayDimensions="0"
+                BrowseName="StaticNodeIdTypes">
+        <DisplayName>StaticNodeIdTypes</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="NumericRange" ParentNodeId="ns=1;i=5013" ValueRank="1" NodeId="ns=1;i=6018"
+                ArrayDimensions="0" BrowseName="StaticNumericNodeIdRange">
+        <DisplayName>StaticNumericNodeIdRange</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6019"
+                BrowseName="StaticStringNodeIdPattern">
+        <DisplayName>StaticStringNodeIdPattern</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
+        </References>
+    </UAVariable>
+</UANodeSet>
