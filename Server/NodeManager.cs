@@ -1,7 +1,6 @@
 using Opc.Ua;
 using Opc.Ua.Export;
 using Opc.Ua.Server;
-using LocalizedText = Opc.Ua.LocalizedText;
 
 namespace BeltLightSensor;
 
@@ -51,33 +50,27 @@ public class NodeManager : CustomNodeManager2
         {
             base.CreateAddressSpace(externalReferences);
 
-            const string nodesSetPath = "BeltLightSensor.NodeSet2.xml";
-            ImportNodesFromXml(externalReferences, nodesSetPath);
+            try
+            {
+                Console.WriteLine("Importing nodes...");
+                const string nodesSetPath = "BeltLightSensor.NodeSet2.xml";
+                ImportNodesFromXml(externalReferences, nodesSetPath);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
-    }
-
-    private FolderState CreateFolder(NodeState? parent, string path, string name)
-    {
-        var folder = new FolderState(parent);
-
-        folder.SymbolicName = name;
-        folder.ReferenceTypeId = ReferenceTypes.Organizes;
-        folder.TypeDefinitionId = ObjectTypeIds.FolderType;
-        folder.NodeId = new NodeId(path, NamespaceIndex);
-        folder.BrowseName = new QualifiedName(path, NamespaceIndex);
-        folder.DisplayName = new LocalizedText("en", name);
-        folder.WriteMask = AttributeWriteMask.None;
-        folder.UserWriteMask = AttributeWriteMask.None;
-        folder.EventNotifier = EventNotifiers.None;
-
-        parent?.AddChild(folder);
-
-        return folder;
     }
 
     private void ImportNodesFromXml(IDictionary<NodeId, IList<IReference>> externalReferences, string nodesSetPath)
     {
         // Code below is from ImportXml found at https://github.com/OPCFoundation/UA-.NETStandard/issues/546
+
+        Console.WriteLine("Importing nodes from " + nodesSetPath);
+
+        if (!File.Exists(nodesSetPath))
+            throw new FileNotFoundException("The file " + nodesSetPath + " does not exist.");
 
         Stream stream = new FileStream(nodesSetPath, FileMode.Open);
         var nodeSet = UANodeSet.Read(stream);
@@ -89,7 +82,10 @@ public class NodeManager : CustomNodeManager2
         nodeSet.Import(SystemContext, predefinedNodes);
 
         foreach (var node in predefinedNodes)
+        {
             AddPredefinedNode(SystemContext, node);
+            Console.WriteLine("\tImported node: " + node.BrowseName);
+        }
 
         AddReverseReferences(externalReferences);
     }
