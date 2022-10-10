@@ -5,12 +5,20 @@ namespace BeltLightSensor;
 
 public class Server : StandardServer
 {
+    private const string NodeSetFileName = "BeltLightSensor.NodeSet2.xml";
+    private readonly Datastore? _datastore;
+
+    public Server()
+    {
+        _datastore = new Datastore("Datastore.json");
+    }
+
     protected override MasterNodeManager CreateMasterNodeManager(IServerInternal server,
         ApplicationConfiguration configuration)
     {
         var nodeManagers = new List<INodeManager>
         {
-            new NodeManager(server, configuration)
+            new NodeManager(server, configuration, _datastore, NodeSetFileName)
         };
 
         return new MasterNodeManager(server, configuration, null, nodeManagers.ToArray());

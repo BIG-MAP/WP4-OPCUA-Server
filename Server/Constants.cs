@@ -29,4 +29,10 @@ public static class Constants
         public const uint BeltLightSensorSettingsNumOfLEDs = 6006;
         public const uint BeltLightSensorSettingsTravelDistance = 6012;
     }
+
+    public static class Database
+    {
+        public const string Path = "datastore.sqlite";
+        public const string Table = "light_sensor";
+    }
 }

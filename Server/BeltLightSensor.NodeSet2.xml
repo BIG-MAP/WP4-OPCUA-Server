@@ -62,6 +62,14 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAVariable>
+    <UAVariable DataType="String" Historizing="true" NodeId="ns=1;i=6010" BrowseName="1:ResultsInput" AccessLevel="15">
+        <DisplayName>ResultsInput</DisplayName>
+        <Description>int[][] array serialized as a string separated by semicolon</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
+        </References>
+    </UAVariable>
     <UAObject NodeId="ns=1;i=5009" BrowseName="1:Settings">
         <DisplayName>Settings</DisplayName>
         <References>
@@ -111,7 +119,7 @@
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAVariable>
-    <UAObject SymbolicName="http___big_map_eu_WP4/BeltLightSensor" NodeId="ns=1;i=5013"
+    <UAObject SymbolicName="http___big_map_eu_WP4_BeltLightSensor" NodeId="ns=1;i=5013"
               BrowseName="1:https://big-map.eu/WP4/BeltLightSensor/">
         <DisplayName>https://big-map.eu/WP4/BeltLightSensor/</DisplayName>
         <References>
