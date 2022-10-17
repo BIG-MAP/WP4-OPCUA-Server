@@ -19,16 +19,6 @@ public class NodeManager : CustomNodeManager2
         _nodeSetFileName = nodeSetFileName;
     }
 
-    public override NodeId New(ISystemContext context, NodeState node)
-    {
-        if (node is not BaseInstanceState instance || instance.Parent == null) return node.NodeId;
-
-        if (instance.Parent.NodeId.Identifier is string id)
-            return new NodeId(id + "_" + instance.SymbolicName, instance.Parent.NodeId.NamespaceIndex);
-
-        return node.NodeId;
-    }
-
     protected override NodeHandle? GetManagerHandle(ServerSystemContext context, NodeId nodeId,
         IDictionary<NodeId, NodeState> cache)
     {
@@ -49,6 +39,8 @@ public class NodeManager : CustomNodeManager2
             return handle;
         }
     }
+
+    #region Address Space
 
     public override void CreateAddressSpace(IDictionary<NodeId, IList<IReference>> externalReferences)
     {
@@ -101,6 +93,10 @@ public class NodeManager : CustomNodeManager2
 
         AddReverseReferences(externalReferences);
     }
+
+    #endregion
+
+    #region Services
 
     public override void Write(OperationContext context, IList<WriteValue> nodesToWrite, IList<ServiceResult> errors)
     {
@@ -208,6 +204,8 @@ public class NodeManager : CustomNodeManager2
         }
     }
 
+    #endregion
+
     #region Continuation Point
 
     private static ResultsContinuationPoint? LoadContinuationPoint(ServerSystemContext context,
@@ -240,7 +238,7 @@ public class NodeManager : CustomNodeManager2
 
     #endregion
 
-    #region HistoryServicesUnsupported
+    #region Unsupported History Services For Debugging
 
     protected override void HistoryUpdate(ServerSystemContext context, Type detailsType,
         IList<HistoryUpdateDetails> nodesToUpdate, IList<HistoryUpdateResult> results, IList<ServiceResult> errors,
@@ -299,6 +297,16 @@ public class NodeManager : CustomNodeManager2
 
     #region Helpers
 
+    public override NodeId New(ISystemContext context, NodeState node)
+    {
+        if (node is not BaseInstanceState instance || instance.Parent == null) return node.NodeId;
+
+        if (instance.Parent.NodeId.Identifier is string id)
+            return new NodeId(id + "_" + instance.SymbolicName, instance.Parent.NodeId.NamespaceIndex);
+
+        return node.NodeId;
+    }
+    
     private string? GetBrowseName(NodeId writeValueNodeId)
     {
         var node = FindPredefinedNode(writeValueNodeId, typeof(BaseInstanceState));
