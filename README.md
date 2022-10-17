@@ -1,4 +1,4 @@
-# PLC OPC-UA Server Mock-Up
+# OPC-UA Server Mock-Up
 
 This is a mock-up of a PLC OPC-UA Server. It is intended to be used for testing OPC-UA clients.
 
