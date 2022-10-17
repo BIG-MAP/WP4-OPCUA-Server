@@ -305,19 +305,6 @@ public class NodeManager : CustomNodeManager2
         return node?.BrowseName.Name;
     }
 
-    private static HistoryReadRequest CreateHistoryReadRequest(
-        ServerSystemContext context,
-        HistoryReadDetails details,
-        NodeHandle handle,
-        HistoryReadValueId nodeToRead)
-    {
-        var node = handle.Node as BaseDataVariableState ??
-                   throw new ArgumentException("Node is not a variable.", nameof(handle));
-
-        var request = new HistoryReadRequest();
-        return request;
-    }
-
     private static HistoryData RandomHistoryData()
     {
         var data = new HistoryData();
